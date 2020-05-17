@@ -50,4 +50,5 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation_fragment"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation_ui"
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 }

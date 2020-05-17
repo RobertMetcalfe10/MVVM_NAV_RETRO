@@ -26,8 +26,9 @@ private val retrofitLogin = Retrofit.Builder()
     .build()
 
 private val httpClientWithToken = OkHttpClient().newBuilder().addInterceptor { chain ->
+    println("jwt $jwtToken")
     val request = chain.request().newBuilder()
-        .addHeader("Authorization", jwtToken).build()
+        .addHeader("Authorization", "Bearer $jwtToken").build()
     chain.proceed(request)
 }.build()
 

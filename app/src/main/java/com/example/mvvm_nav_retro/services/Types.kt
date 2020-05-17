@@ -1,5 +1,7 @@
 package com.example.mvvm_nav_retro.services
 
+import com.squareup.moshi.Json
+
 data class LoginBody(
     val identifier: String,
     val password: String
@@ -18,17 +20,17 @@ data class User(
     val confirmed: Boolean,
     val blocked: Boolean,
     val role: Any,
-    val created_at: String,
-    val updated_at: String
+    @Json(name = "created_at") val createdAt: String,
+    @Json(name = "updated_at") val updatedAt: String
 )
 
 data class Restaurant(
     val id: Int,
     val name: String,
-    val created_at: String,
-    val updated_at: String
+    @Json(name = "created_at") val createdAt: String,
+    @Json(name = "updated_at") val updatedAt: String
 ) {
     override fun toString(): String {
-        return "$id, $name, $created_at, $updated_at"
+        return "$id, $name, $createdAt, $updatedAt"
     }
 }
