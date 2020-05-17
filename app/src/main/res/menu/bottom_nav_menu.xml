@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_get"
+        android:id="@+id/getFragment"
         android:enabled="true"
         android:title="Get" />
     <item
-        android:id="@+id/action_post"
+        android:id="@+id/postFragment"
         android:enabled="true"
         android:title="Post" />
 </menu>

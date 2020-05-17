@@ -5,19 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.mvvm_nav_retro.R
 import com.example.mvvm_nav_retro.databinding.FragmentLoginBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -32,7 +33,14 @@ class LoginFragment : Fragment() {
     }
 
     fun login() {
-        findNavController().navigate(R.id.action_loginFragment_to_getFragment)
-        println("HERE")
+        lifecycleScope.launch(Dispatchers.Main) {
+            if (viewModel.login()
+                    .isNotEmpty()
+            ) findNavController().navigate(R.id.action_loginFragment_to_getFragment) else Toast.makeText(
+                context, "Login Failed",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
     }
 }
