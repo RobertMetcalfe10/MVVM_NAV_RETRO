@@ -25,12 +25,14 @@ data class User(
 )
 
 data class Restaurant(
-    val id: Int,
+    val id: Int?,
     val name: String,
-    @Json(name = "created_at") val createdAt: String,
-    @Json(name = "updated_at") val updatedAt: String
+    @Json(name = "created_at") val createdAt: String?,
+    @Json(name = "updated_at") val updatedAt: String?
 ) {
     override fun toString(): String {
         return "$id, $name, $createdAt, $updatedAt"
     }
 }
+
+data class RestaurantToAdd(val name: String)

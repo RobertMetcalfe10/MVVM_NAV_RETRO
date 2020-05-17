@@ -29,6 +29,12 @@ android {
 
 }
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -51,4 +57,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation_ui"
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation("com.squareup.okhttp3:logging-interceptor:4.6.0")
 }
